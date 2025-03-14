@@ -6,6 +6,6 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-func SetupInventoryRoutes(app *fiber.App) {
+func SetupInventoryRoutes(app fiber.Router) {
 	app.Post("/inventory/adjustment", handlers.AdjustInventory)
 }

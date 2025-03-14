@@ -17,6 +17,8 @@ A RESTful API built with Go and Fiber for managing products and inventory. This 
     - [Example Usage](#example-usage)
   - [Docker Deployment](#docker-deployment)
   - [API Specification](#api-specification)
+    - [Service Configurations in Choreo (optional)](#service-configurations-in-choreo-optional)
+      - [Load initial data in Choreo ( optional )](#load-initial-data-in-choreo--optional-)
 
 ## Features
 - **CRUD Operations**: Manage products with create, read, update, and delete operations.
@@ -78,6 +80,7 @@ The application uses environment variables for configuration. You can set these 
 | `PORT`           | Port for the API server         | `8080`                      |
 | `ENV`            | Environment (e.g., development) | `""` (empty string)         |
 | `INIT_DATA_PATH` | Path to initial data JSON file  | `configs/initial_data.json` |
+| `BASE_PATH`      | API base path                   | `api/v1`                    |
 
 ### Optional Configuration with `.env`
 To use a `.env` file:
@@ -124,6 +127,9 @@ go run main.go
    Should show: `API Running on port: 8080`.
 
 ## API Endpoints
+
+The default base path: `/api/v1`
+
 | Method | Endpoint                | Description               |
 | ------ | ----------------------- | ------------------------- |
 | GET    | `/products`             | List all products         |
@@ -136,12 +142,12 @@ go run main.go
 ### Example Usage
 **Get All Products**:
 ```bash
-curl -X GET 'http://localhost:8080/products'
+curl -X GET 'http://localhost:8080/api/v1/products'
 ```
 
 **Create a Product**:
 ```bash
-curl -X POST 'http://localhost:8080/products' \
+curl -X POST 'http://localhost:8080/api/v1/products' \
 -H 'Content-Type: application/json' \
 -d '{"name": "Noise Cancelling Headphones", "description": "Over-ear headphones", "price": 120.00, "category": "Electronics", "stock_quantity": 75}'
 ```
@@ -162,9 +168,6 @@ docker build -t product-api .
 docker run -p 8080:8080 -e INIT_DATA_PATH=/app/configs/initial_data.json product-api
 ```
 
-## API Specification
-The API is documented in OpenAPI 3.0 format. See [openapi.yaml](docs/openapi.yaml) for details.
-
 **Debugging**:
 - Check build output:
   ```bash
@@ -174,3 +177,19 @@ The API is documented in OpenAPI 3.0 format. See [openapi.yaml](docs/openapi.yam
   ```bash
   docker logs <container-id>
   ```
+
+## API Specification
+The API is documented in OpenAPI 3.0 format. See [openapi.yaml](docs/openapi.yaml) for details.
+
+### Service Configurations in Choreo (optional)
+
+Refer [config.go](internal/config/config.go) file for the available configurations.
+
+For more information on how to configure a service in Choreo, refer [Manage Configurations and Secrets](https://wso2.com/choreo/docs/deploy/devops/configs-and-secrets/) documentation.
+
+#### Load initial data in Choreo ( optional )
+
+1. Set environment variable by navigating to Choreo Deploy page `INIT_DATA_PATH=configs/initial_data.json`
+2. Mount the file contents of `configs/initial_data.json` in the path specified in step 1.
+
+See [initial_data.json](configs/initial_data.json) for a sample file.

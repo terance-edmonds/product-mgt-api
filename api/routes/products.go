@@ -6,7 +6,7 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-func SetupProductRoutes(app *fiber.App) {
+func SetupProductRoutes(app fiber.Router) {
 	app.Get("/products", handlers.GetProducts)
 	app.Post("/products", handlers.CreateProduct)
 	app.Get("/products/:productId", handlers.GetProduct)

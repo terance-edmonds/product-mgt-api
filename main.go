@@ -12,9 +12,6 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-// PORT represents the port API is listening at
-const PORT = 8080
-
 func main() {
 	app := fiber.New(fiber.Config{
 		AppName:               "choreo-product-mgt-api",
@@ -33,9 +30,12 @@ func main() {
 	// Load initial data
 	storage.LoadInitialData()
 
+	// Create a group for the base path
+	api := app.Group(cfg.BasePath)
+
 	// Setup routes
-	routes.SetupProductRoutes(app)
-	routes.SetupInventoryRoutes(app)
+	routes.SetupProductRoutes(api)
+	routes.SetupInventoryRoutes(api)
 
 	// Print startup message before starting the server
 	fmt.Printf("API Running on port: %v\n", cfg.Port)

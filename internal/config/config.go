@@ -16,6 +16,8 @@ type Config struct {
 	// InitialDataPath sets the path to load the initial data file.
 	// Refer to the InitialData struct for the file format.
 	InitialDataPath string
+	// BasePath sets the base api path.
+	BasePath string
 }
 
 type InitialData struct {

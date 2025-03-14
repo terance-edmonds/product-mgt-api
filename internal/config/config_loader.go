@@ -11,12 +11,14 @@ const (
 	DefaultPort            = 8080
 	DefaultHostname        = "localhost"
 	DefaultInitialDataPath = "configs/initial_data.json"
+	DefaultBasePath        = "/api/v1"
 )
 
 var (
 	EnvName         = "ENV"
 	Hostname        = "HOSTNAME"
 	Port            = "PORT"
+	basePath        = "BASE_PATH"
 	initialDataPath = "INIT_DATA_PATH"
 )
 
@@ -32,6 +34,7 @@ func LoadConfig() (*Config, error) {
 		Port:            getEnvInt(Port, DefaultPort),
 		Env:             os.Getenv(EnvName),
 		InitialDataPath: getEnvString(initialDataPath, DefaultInitialDataPath),
+		BasePath:        getEnvString(basePath, DefaultBasePath),
 	}
 	return &config, nil
 }
