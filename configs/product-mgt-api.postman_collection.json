@@ -17,13 +17,14 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:{{port}}/products",
+					"raw": "http://localhost:{{port}}/{{basePath}}/products",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "{{port}}",
 					"path": [
+						"{{basePath}}",
 						"products"
 					]
 				},
@@ -51,13 +52,14 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:{{port}}/products",
+					"raw": "http://localhost:{{port}}/{{basePath}}/products",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "{{port}}",
 					"path": [
+						"{{basePath}}",
 						"products"
 					]
 				},
@@ -76,13 +78,14 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:{{port}}/products/:id",
+					"raw": "http://localhost:{{port}}/{{basePath}}/products/:id",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "{{port}}",
 					"path": [
+						"{{basePath}}",
 						"products",
 						":id"
 					],
@@ -117,13 +120,14 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:{{port}}/products/:id",
+					"raw": "http://localhost:{{port}}/{{basePath}}/products/:id",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "{{port}}",
 					"path": [
+						"{{basePath}}",
 						"products",
 						":id"
 					],
@@ -149,13 +153,14 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:{{port}}/products/:id",
+					"raw": "http://localhost:{{port}}/{{basePath}}/products/:id",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "{{port}}",
 					"path": [
+						"{{basePath}}",
 						"products",
 						":id"
 					],
@@ -190,13 +195,14 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:{{port}}/inventory/adjustment",
+					"raw": "http://localhost:{{port}}/{{basePath}}/inventory/adjustment",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "{{port}}",
 					"path": [
+						"{{basePath}}",
 						"inventory",
 						"adjustment"
 					]
@@ -210,6 +216,11 @@
 		{
 			"key": "port",
 			"value": "8080",
+			"type": "default"
+		},
+		{
+			"key": "basePath",
+			"value": "api/v1",
 			"type": "default"
 		}
 	]
