@@ -16,6 +16,7 @@ A RESTful API built with Go and Fiber for managing products and inventory. This 
   - [API Endpoints](#api-endpoints)
     - [Example Usage](#example-usage)
   - [Docker Deployment](#docker-deployment)
+  - [API Specification](#api-specification)
 
 ## Features
 - **CRUD Operations**: Manage products with create, read, update, and delete operations.
@@ -160,6 +161,9 @@ The project uses a multi-stage Dockerfile for efficient builds:
 docker build -t product-api .
 docker run -p 8080:8080 -e INIT_DATA_PATH=/app/configs/initial_data.json product-api
 ```
+
+## API Specification
+The API is documented in OpenAPI 3.0 format. See [openapi.yaml](docs/openapi.yaml) for details.
 
 **Debugging**:
 - Check build output:
